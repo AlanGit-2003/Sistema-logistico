@@ -1,0 +1,7 @@
+#ifndef PRODUCTOR_CONSUMIDOR_H_INCLUDED
+#define PRODUCTOR_CONSUMIDOR_H_INCLUDED
+
+void productor();
+void consumidor();
+
+#endif // PRODUCTOR_CONSUMIDOR_H_INCLUDED
