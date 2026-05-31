@@ -104,7 +104,7 @@ void consumidor(string id, int cantidadConsumidores) {
         mtx_waiting.unlock();
 
         // 3. Retardo de pase a la cinta (420ms)
-        this_thread::sleep_for(milliseconds(10));
+        this_thread::sleep_for(milliseconds(420));
 
         // 4. Meter en la processing queue
         mtx_processing.lock();
@@ -116,7 +116,7 @@ void consumidor(string id, int cantidadConsumidores) {
              << " | en cinta" << endl;
 
         // 5. Tiempo minimo en la cinta (550ms)
-        this_thread::sleep_for(milliseconds(10));
+        this_thread::sleep_for(milliseconds(510));
 
         // 6. Retirar de la cinta
         mtx_processing.lock();
@@ -124,7 +124,7 @@ void consumidor(string id, int cantidadConsumidores) {
         mtx_processing.unlock();
 
         // 7. Retardo de liberacion (270ms)
-        this_thread::sleep_for(milliseconds(10));
+        this_thread::sleep_for(milliseconds(270));
 
         // 8. Liberar espacio en la cinta
         signal(espacios_cinta);

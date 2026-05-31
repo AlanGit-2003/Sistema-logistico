@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1780234758 source:c:\users\user\sistema-logistico\paquete.cpp
+	"paquete.h"
+
+1780234758 c:\users\user\sistema-logistico\paquete.h
+	<queue>
+	<mutex>
+	<chrono>
+	"semaforo.h"
+
+1780234758 c:\users\user\sistema-logistico\semaforo.h
+	<mutex>
+	<condition_variable>
+
+1780234758 source:c:\users\user\sistema-logistico\semaforo.cpp
+	"semaforo.h"
+	<mutex>
+	<condition_variable>
+
