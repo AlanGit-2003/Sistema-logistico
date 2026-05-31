@@ -5,7 +5,6 @@
 #include <thread>
 #include <queue>
 
-std::priority_queue<Paquete, std::vector<Paquete>, bool (*)(const Paquete&, const Paquete&)> waiting_queue(compararPaquete); // recurso compartido
 std::queue<Paquete> processing_queue;
 Semaforo hay_espacio_waiting_queue;
 Semaforo hay_espacio_procesing_queue;
@@ -38,4 +37,3 @@ int main()
     return 0;
 }
 
-//prueba git push Leon

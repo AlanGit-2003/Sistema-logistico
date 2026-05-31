@@ -8,6 +8,8 @@
 #include <thread>
 
 // Recursos compartidos
+std::priority_queue<Paquete, std::vector<Paquete>, bool (*)(const Paquete&, const Paquete&)> waiting_queue(compararPaquete); // recurso compartido
+
 extern std::priority_queue<Paquete, std::vector<Paquete>, bool (*)(const Paquete&, const Paquete&)> waiting_queue;
 extern std::queue<Paquete> processing_queue;
 extern Semaforo hay_espacio_waiting_queue;

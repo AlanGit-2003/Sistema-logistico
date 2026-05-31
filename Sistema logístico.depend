@@ -17,3 +17,31 @@
 	<mutex>
 	<condition_variable>
 
+1780249434 source:c:\users\user\sistema-logistico\main.cpp
+	"ptc.h"
+	"semaforo.h"
+	"paquete.h"
+	<iostream>
+	<thread>
+	<queue>
+
+1780234758 c:\users\user\sistema-logistico\ptc.h
+
+1780234758 source:c:\users\user\sistema-logistico\main2.cpp
+	"pc2.h"
+	"paquete.h"
+	<iostream>
+	<thread>
+
+1780234758 c:\users\user\sistema-logistico\pc2.h
+	<string>
+
+1780235880 source:c:\users\user\sistema-logistico\pc2.cpp
+	"pc2.h"
+	"paquete.h"
+	<iostream>
+	<thread>
+	<chrono>
+	<cstdlib>
+	<mutex>
+
