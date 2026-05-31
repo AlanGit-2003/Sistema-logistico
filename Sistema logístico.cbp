@@ -33,8 +33,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
-		<Unit filename="pc.cpp" />
-		<Unit filename="pc.h" />
+		<Unit filename="paquete.cpp" />
+		<Unit filename="paquete.h" />
+		<Unit filename="ptc.cpp" />
+		<Unit filename="ptc.h" />
 		<Unit filename="semaforo.cpp" />
 		<Unit filename="semaforo.h" />
 		<Extensions />
