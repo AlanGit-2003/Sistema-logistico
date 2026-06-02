@@ -1,8 +1,10 @@
 #ifndef PTC_H_INCLUDED
 #define PTC_H_INCLUDED
 
-void productor(int prioridad);
+#include <mutex>
+
+void productor(int cant_productores, int prioridad);
 void transportador();
-void consumidor();
+void consumidor(int cant_consumidores);
 
 #endif // PTC_H_INCLUDED
