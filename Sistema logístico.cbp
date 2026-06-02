@@ -32,19 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="main2.cpp" />
+		<Unit filename="main.cpp" />
 		<Unit filename="paquete.cpp" />
 		<Unit filename="paquete.h" />
-		<Unit filename="pc2.cpp" />
-		<Unit filename="ptc.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="ptc.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="ptc.cpp" />
+		<Unit filename="ptc.h" />
 		<Unit filename="semaforo.cpp" />
 		<Unit filename="semaforo.h" />
 		<Extensions />
