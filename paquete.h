@@ -10,7 +10,6 @@ struct Paquete{
 };
 
 Paquete crearPaquete(int prioridad);
-bool compararPaquete(const Paquete& a,const Paquete& b);
 void calcularTiempoEspera(Paquete p);
 
 #endif // PAQUETE_H_INCLUDED

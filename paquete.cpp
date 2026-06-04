@@ -2,50 +2,25 @@
 #include "ptc.h"
 #include <stdlib.h>
 
+std::mutex mtx_id; // Para exclusión mutua del ultimo id
+std::mutex mtx_tiempo_espera; // Para exclusión mutua del sumador de tiempos de espera
+
 static int ultimo_id = 0; // para llevar la cuenta del ultimo id
 int cant_paquetes_prioridad_1 = 0;
 int cant_paquetes_prioridad_0 = 0;
 int suma_espera_prioridad_1 = 0;
 int suma_espera_prioridad_0 = 0;
 
-extern std::mutex mtx_tiempo_espera;
-
 Paquete crearPaquete(int prioridad){
     Paquete p;
+    mtx_id.lock();
     p.id = ++ultimo_id;
-    if(prioridad == 1){ // si prioridad deseada es alta
-        p.prioridad = 1;
-    }else{ // sino prioridad aleatoria
-        p.prioridad = rand()%2;
-    }
+    mtx_id.unlock();
+    if(prioridad == 0) p.prioridad = 0; // si prioridad deseada es baja
+    if(prioridad == 1) p.prioridad = 1; // si prioridad deseada es alta
+    if(prioridad == 2) p.prioridad = rand()%2; // si prioridad deseada es aleatoria
     p.fecha = std::chrono::steady_clock::now(); // tiempo en que se crea un paquete
     return p;
-}
-
-/*static int prioridadEfectiva(const Paquete& p){
-    long long espera = std::chrono::duration_cast<std::chrono::milliseconds>(
-        std::chrono::steady_clock::now() - p.fecha
-    ).count();
-    if (p.prioridad == 0 && espera >= 6000){
-        return 1; // promovido por aging
-    }
-    return p.prioridad;
-}
-
-bool compararPaquete(const Paquete& a, const Paquete& b){
-    int pa = prioridadEfectiva(a);
-    int pb = prioridadEfectiva(b);
-    if (pa == pb){
-        return a.id > b.id; // FIFO entre misma prioridad efectiva
-    }
-    return pa < pb;
-}*/
-
-bool compararPaquete(const Paquete& a,const Paquete& b){ // comparar prioridad de paquetes
-    if(a.prioridad == b.prioridad){
-        return a.id > b.id; // desempate por FIFO (retorna el primero que llego a la cola)
-    }
-    return a.prioridad < b.prioridad; // retorna el de mayor prioridad
 }
 
 void calcularTiempoEspera(Paquete p){
