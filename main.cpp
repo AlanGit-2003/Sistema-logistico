@@ -11,10 +11,10 @@ Semaforo hay_espacio_procesing_queue;
 Semaforo hay_datos_waiting_queue;
 Semaforo hay_datos_procesing_queue;
 
-int cant_paquetes = 20;
+int cant_paquetes = 550;
 int prioridad = 2; // prioridad de los paquetes a producir (1=alta, 0=baja, 2=aleatoria)
-const int cant_productores = 1;
-const int cant_consumidores = 1;
+const int cant_productores = 3;
+const int cant_consumidores = 3;
 
 extern int total_producidos;
 extern int cant_paquetes_prioridad_1;
@@ -40,8 +40,6 @@ int main()
         operarios.emplace_back(productor, i, cant_producir + extra, prioridad);
     }
 
-    //std::thread operario2(productor, 2, 1, 0); // para Prueba de equidad (Anti-Starvation)
-
     std::thread operario(transportador, cant_paquetes);
 
     std::vector<std::thread> repartidores;
@@ -55,7 +53,6 @@ int main()
     }
 
     for(auto& t : operarios) t.join(); // for para join de los n productores
-    //operario2.join(); // para Prueba de equidad (Anti-Starvation)
     operario.join();
     for(auto& t : repartidores) t.join(); // for para join de los n consumidores
 

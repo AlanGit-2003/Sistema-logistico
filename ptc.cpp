@@ -24,6 +24,7 @@ void productor(int id, int cant_producir, int prioridad) {
     for (int i = 0; i < cant_producir; i++) {
         // 1. Creacion de un paquete
         Paquete p = crearPaquete(prioridad);
+        //if(p.id == 5) p.prioridad = 0; // para Prueba de equidad (Anti-Starvation)
 
         // 2. Mutex del contador global de producidos
         mtx_total_producidos.lock();
